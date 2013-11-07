@@ -1,13 +1,16 @@
+// You should name the main package 'main'
 package main
 
+// how to import other packages (self defined or standard lib)
 import (
   "fmt"
 )
 
+// defining a function named Sqrt
 func Sqrt(x float64) float64 {
-  z := (1.0 + x) / 2.0
+  var z = (1.0 + x) / 2.0
 
-  fmt.Println("Type 4")
+  fmt.Println("endless looping")
   for {
     old_z := z
     z = (z + x/z)/2.0
@@ -18,21 +21,22 @@ func Sqrt(x float64) float64 {
 }
 
 func main() {
-  var pow = []int{1, 2, 4, 8, 16}
-  // pow := []int{1, 2, 4, 8, 16}
+  // var pow = []int{1, 2, 4, 8, 16}
+  pow := []int{1, 2, 4, 8, 16}
 
-  fmt.Println("Type 1")
-  for i, value := range pow {
-    fmt.Println(i, value)
-  }
-
-  fmt.Println("Type 2")
+  fmt.Println("basic for loop (like C/Java) all variables need to be used")
   for i := 0; i < 5; i++ {
     fmt.Println(i)
   }
 
-  fmt.Println("Type 3")
+  fmt.Println("loop with a range returns index, value")
+  for i, value := range pow {
+    fmt.Println(i, value)
+  }
+
   i := 0 // declare because previous was not in scope
+
+  fmt.Println("While loop")
   for i < 5 {
     i++
     fmt.Println(i)
