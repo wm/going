@@ -23,7 +23,6 @@ func main() {
     }
 }
 
-
 // Note: Only the sender should close a channel, never the receiver. Sending on
 // a closed channel will cause a panic.
 
@@ -31,4 +30,5 @@ func main() {
 // them. Closing is only necessary when the receiver must be told there are no
 // more values coming, such as to terminate a range loop.
 
+// you can test if a channel is open or closed too. Closed when ok == false
 // v, ok := <-ch

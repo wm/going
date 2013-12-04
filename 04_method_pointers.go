@@ -5,7 +5,11 @@ import (
   "math"
 )
 
-// mutator
+type Vertex struct {
+  X, Y float64
+}
+
+// mutator - idiomatic
 func (v *Vertex) MScale(f float64) {
   v.X = v.X * f
   v.Y = v.Y * f
@@ -22,10 +26,6 @@ func (v Vertex) Abs() float64 {
   return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
-type Vertex struct {
-  X, Y float64
-}
-
 func MDouble(x *int) int {
   *x = 2*(*x)
   return *x
@@ -37,28 +37,28 @@ func Double(x int) int {
 }
 
 func main() {
-  fmt.Println(Double(7))
+  fmt.Println("Double(7) =>", Double(7))
 
   x := 7
   Double(x)
-  fmt.Println(x)
+  fmt.Println("x := 7; Double(x);  x => ", x)
 
   y := 7
-  fmt.Println(MDouble(&y))
-  fmt.Println(y)
+  fmt.Println("y := 7; MDouble(y); y => ", MDouble(&y))
+  fmt.Println()
 
   // methods on objects?
   v := Vertex{3, 4}
-  fmt.Println(v, v.Abs())
+  fmt.Println("             v = ", v, "  ;        v.Abs() => ", v.Abs())
 
   v.Scale(5)
-  fmt.Println(v, v.Abs())
+  fmt.Println("v.Scale(5);  v = ", v, "  ;        v.Abs() => ", v.Abs())
 
-  other_v := v.Scale(5)
-  fmt.Println(other_v, other_v.Abs())
+  scaled_v := v.Scale(5)
+  fmt.Println("      scaled_v = ", scaled_v, "; scaled_v.Abs() => ", scaled_v.Abs())
 
   v.MScale(5)
-  fmt.Println(v, v.Abs())
+  fmt.Println("v.MScale(5); v = ", v, ";        v.Abs() => ", v.Abs())
   // see http://stackoverflow.com/questions/15096329/golang-pointers for
   // explanation of pointer/value methods and their generated/looked up
   // counterparts

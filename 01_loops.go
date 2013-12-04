@@ -21,6 +21,8 @@ func Sqrt(x float64) float64 {
 }
 
 func main() {
+
+  // var pow = make([]int, 5)
   // var pow = []int{1, 2, 4, 8, 16}
   pow := []int{1, 2, 4, 8, 16}
 

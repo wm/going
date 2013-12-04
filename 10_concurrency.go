@@ -20,16 +20,8 @@ func one() {
 }
 
 func main() {
-  // one()
-  two()
-}
-
-func sum(a []int, c chan int) {
-    sum := 0
-    for _, v := range a {
-        sum += v
-    }
-    c <- sum // send sum to c
+  one()
+  // two()
 }
 
 func two() {
@@ -38,7 +30,16 @@ func two() {
     c := make(chan int)
     go sum(a[:len(a)/2], c)
     go sum(a[len(a)/2:], c)
+
     x, y := <-c, <-c // receive from c
 
     fmt.Println(x, y, x+y)
+}
+
+func sum(a []int, c chan int) {
+    sum := 0
+    for _, v := range a {
+        sum += v
+    }
+    c <- sum // send sum to c
 }

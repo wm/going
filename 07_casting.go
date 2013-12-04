@@ -1,8 +1,6 @@
 package main
 
-import (
-    "fmt"
-)
+import "fmt"
 
 type ErrNegativeSqrt float64
 
@@ -11,11 +9,12 @@ func (e ErrNegativeSqrt) Error() string {
     return "cannot Sqrt negative number: " + value
 }
 
+// idiomatic - return (value, nil) or (zero value, error)
 func Sqrt(x float64) (float64, error) {
   if x < 0 {
       return 0, ErrNegativeSqrt(x)
   }
-  
+
   var z = (1.0 + x) / 2.0
 
   for {

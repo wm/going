@@ -4,6 +4,8 @@ import (
   "fmt"
   "time"
 )
+
+// already defined in go
 type error interface {
   Error() string
 }
@@ -14,8 +16,7 @@ type MyError struct {
 }
 
 func (e *MyError) Error() string {
-  return fmt.Sprintf("at %v, %s",
-  e.When, e.What)
+  return fmt.Sprintf("at %v, %s", e.When, e.What)
 }
 
 func run() error {

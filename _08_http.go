@@ -27,6 +27,7 @@ func (s Struct) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     fmt.Fprint(w, s.Greeting + s.Punct + s.Who)
 }
 
+// Package http serves HTTP requests using any value that implements http.Handler
 func main() {
     h := Hello{}
     http.Handle("/", h)
